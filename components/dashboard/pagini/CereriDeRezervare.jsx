@@ -6,7 +6,7 @@ const CereriDeRezervare = () => {
   return (
     <div className="text-center ">
       <h1> CereriDeRezervare</h1>
-      <ul className="bg-slate-400 grid gap-6 grid-cols-3 p-6 ">
+      <ul className="bg-slate-400 grid gap-6 sm:grid-cols-1 lg:grid-cols-3 sm:p-0 lg:p-16 ">
         {rezervariArray.map((rezervare, index) => {
           return (
             <li className="p-6 border-slate-600 border-4 gap-6" key={index}>

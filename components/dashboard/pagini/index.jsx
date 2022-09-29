@@ -7,7 +7,7 @@ import Pag5 from "./pag5";
 
 const PaginiDashboard = () => {
   return (
-    <ul className=" w-full container flex h-screen justify-center ">
+    <ul className=" w-full container flex h-auto justify-center ">
       <li id="1" className="block w-full h-screen transition-shadow">
         <CereriDeRezervare />
       </li>
