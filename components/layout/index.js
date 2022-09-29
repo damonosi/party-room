@@ -17,7 +17,7 @@ const Layout = ({ children }) => {
         <div className="container m-auto mt-0">
           <Header />
         </div>
-        <main className="container m-auto grid grid-cols-auto  h-full justify-center overflow-scroll">
+        <main className="container m-auto grid grid-cols-auto  h-full justify-center ">
           {children}
         </main>
 

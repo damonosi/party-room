@@ -25,7 +25,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container flex flex-row w-screen h-full ">
+    <div className="container flex flex-row w-screen h-full overflow-scroll">
       <div className="flex bg-red-50 h-96 sticky  top-0  w-32 justify-center items-center">
         <ul className="flex flex-col w-full h-96  justify-between p-6 pl-1 pr-1">
           <li className="border-2 p-2">
