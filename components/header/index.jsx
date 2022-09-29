@@ -15,6 +15,9 @@ const Header = () => {
         <Link href="/">
           <a>PartyRoom</a>
         </Link>
+        <Link href="/fa-o-rezervare">
+          <a>Rezerva Locatia</a>
+        </Link>
         {session?.user?.isAdmin ? (
           <Link href="/dashboard">
             <a>Panou de Comanda</a>

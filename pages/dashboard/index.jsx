@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useState, useEffect, useRef, createRef } from "react";
 import PaginiDashboard from "./../../components/dashboard/pagini/index";
 
-const Dashboard = () => {
+const Dashboard = ({ evAcceptate }) => {
   const ref = useRef();
   const handleClick = (e) => {
     const linkId = e.currentTarget.id;
@@ -26,7 +26,7 @@ const Dashboard = () => {
 
   return (
     <div className="container flex flex-row w-screen  h-auto relative">
-      <div className="flex bg-red-50 h-96   w-32 justify-center items-center sticky  top-0">
+      <div className="flex bg-red-50 h-96 rounded-r-xl  w-32 justify-center items-center sticky  top-0">
         <ul className="flex flex-col w-full h-96  justify-between p-6 pl-1 pr-1 ">
           <li className="border-2 p-2">
             <Link href="#">
@@ -70,10 +70,16 @@ const Dashboard = () => {
       </div>
 
       <div ref={ref} className="container m-0 flex justify-center p-6 h-full">
-        <PaginiDashboard handleClick={handleClick} />
+        <PaginiDashboard evAcceptate={evAcceptate} handleClick={handleClick} />
       </div>
     </div>
   );
 };
-
+export async function getServerSideProps(context) {
+  const res = await fetch(`http://localhost:3000/api/rezervari/acceptate`);
+  const evAcceptate = await res.json();
+  return {
+    props: { evAcceptate },
+  };
+}
 export default Dashboard;
