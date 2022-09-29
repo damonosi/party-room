@@ -1,41 +1,76 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect, useRef, createRef } from "react";
+import PaginiDashboard from "./../../components/dashboard/pagini/index";
 
 const Dashboard = () => {
+  const ref = useRef();
+  const handleClick = (e) => {
+    const linkId = e.currentTarget.id;
+
+    const idList = [1, 2, 3, 4, 5];
+    let cloneArray = idList.slice();
+    let i = linkId - 1;
+
+    cloneArray.splice(i, 1);
+    const paginaTintita = ref.current.children[0].children[linkId - 1];
+    const paginiTintita = ref.current.children[0].children;
+
+    if (paginaTintita.id === linkId) {
+      paginaTintita.className = "block";
+      cloneArray.map((arr) => {
+        let paginiHidden = paginiTintita[arr - 1];
+        paginiHidden.className = "hidden";
+      });
+    }
+  };
+
   return (
     <div className="container flex flex-row w-screen h-screen relative">
       <div className="flex bg-red-50 relative w-32 justify-center items-center">
         <ul className="flex flex-col w-full h-screen justify-between p-6 pl-0 pr-0">
           <li className="border-2 p-2">
             <Link href="#">
-              <a>Optiune1</a>
+              <a id="1" onClick={handleClick}>
+                <button>Cereri De Rezervare</button>
+              </a>
             </Link>{" "}
           </li>
           <li className="border-2 p-2">
             <Link href="#">
-              <a>Optiune2</a>
+              <a id="2" onClick={handleClick}>
+                Optiune2
+              </a>
             </Link>{" "}
           </li>
           <li className="border-2 p-2">
             <Link href="#">
-              <a> Optiune3</a>
+              <a id="3" onClick={handleClick}>
+                {" "}
+                Optiune3
+              </a>
             </Link>{" "}
           </li>
           <li className="border-2 p-2">
             <Link href="#">
-              <a> Optiune4</a>
+              <a id="4" onClick={handleClick}>
+                {" "}
+                Optiune4
+              </a>
             </Link>{" "}
           </li>
           <li className="border-2 p-2">
             <Link href="#">
-              <a> Optiune5</a>
+              <a id="5" onClick={handleClick}>
+                {" "}
+                Optiune5
+              </a>
             </Link>{" "}
           </li>
         </ul>
       </div>
 
-      <div className="container flex justify-center p-6">
-        <h1>Dashboard</h1>
+      <div ref={ref} className="container flex justify-center p-6">
+        <PaginiDashboard handleClick={handleClick} />
       </div>
     </div>
   );
