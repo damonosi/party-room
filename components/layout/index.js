@@ -13,16 +13,13 @@ const Layout = ({ children }) => {
       </Head>
       <ToastContainer position="bottom-center" limit={1} />
 
-      <div className=" flex min-h-screen flex-col justify-between relative h-full ">
-        <div className="container m-auto mt-0">
-          <Header />
-        </div>
-        <main className="container m-auto grid grid-cols-auto  h-full justify-center ">
-          {children}
-        </main>
+      <Header />
 
-        <Footer />
-      </div>
+      <main className="container  min-h-screen   w-full grid grid-cols-auto  h-fit mt-0 justify-center relative">
+        {children}
+      </main>
+
+      <Footer />
     </>
   );
 };

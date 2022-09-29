@@ -25,9 +25,9 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="container flex flex-row w-screen h-full overflow-scroll">
-      <div className="flex bg-red-50 h-96 sticky  top-0  w-32 justify-center items-center">
-        <ul className="flex flex-col w-full h-96  justify-between p-6 pl-1 pr-1">
+    <div className="container flex flex-row w-screen  h-auto relative">
+      <div className="flex bg-red-50 h-96   w-32 justify-center items-center sticky  top-0">
+        <ul className="flex flex-col w-full h-96  justify-between p-6 pl-1 pr-1 ">
           <li className="border-2 p-2">
             <Link href="#">
               <a id="1" onClick={handleClick}>
@@ -69,7 +69,7 @@ const Dashboard = () => {
         </ul>
       </div>
 
-      <div ref={ref} className="container flex justify-center p-6 h-full">
+      <div ref={ref} className="container m-0 flex justify-center p-6 h-full">
         <PaginiDashboard handleClick={handleClick} />
       </div>
     </div>
