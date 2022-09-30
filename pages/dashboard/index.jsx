@@ -1,8 +1,10 @@
+import axios from "axios";
 import Link from "next/link";
 import React, { useState, useEffect, useRef, createRef } from "react";
-import PaginiDashboard from "./../../components/dashboard/pagini/index";
 
-const Dashboard = ({ evAcceptate, cereri }) => {
+import PaginiDashboard from "../../components/dashboard/index";
+
+const Dashboard = () => {
   const ref = useRef();
   const handleClick = (e) => {
     const linkId = e.currentTarget.id;
@@ -70,24 +72,9 @@ const Dashboard = ({ evAcceptate, cereri }) => {
       </div>
 
       <div ref={ref} className="container m-0 flex justify-center p-6 h-full">
-        <PaginiDashboard
-          evAcceptate={evAcceptate}
-          cereri={cereri}
-          handleClick={handleClick}
-        />
+        <PaginiDashboard handleClick={handleClick} />
       </div>
     </div>
   );
 };
-export async function getServerSideProps(context) {
-  const res = await fetch(`http://localhost:3000/api/rezervari/acceptate`);
-  const evAcceptate = await res.json();
-
-  const resCereri = await fetch(`http://localhost:3000/api/rezervari/cereri`);
-  const cereri = await resCereri.json();
-
-  return {
-    props: { evAcceptate, cereri },
-  };
-}
 export default Dashboard;

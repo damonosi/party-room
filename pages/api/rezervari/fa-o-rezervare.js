@@ -2,6 +2,9 @@ import { Event } from "../../../models/Event";
 import db from "./../../../utils/db";
 
 const handler = async (req, res) => {
+  if (req.method !== "POST") {
+    return;
+  }
   const {
     nrValue: nrTelefon,
     dataInceput,

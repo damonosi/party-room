@@ -1,36 +1,36 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-import Spinner from "./../../spinner/index";
+import Spinner from "../spinner/index";
 
-const CereriDeRezervare = dynamic(() => import("./CereriDeRezervare"), {
+const CereriDeRezervare = dynamic(() => import("./pagini/CereriDeRezervare"), {
   suspense: true,
 });
-const CereriAcceptate = dynamic(() => import("./CereriAcceptate"), {
-  suspense: true,
-});
-
-const Pag3 = dynamic(() => import("./pag3"), {
-  suspense: true,
-});
-const Pag4 = dynamic(() => import("./pag4"), {
-  suspense: true,
-});
-const Pag5 = dynamic(() => import("./pag5"), {
+const CereriAcceptate = dynamic(() => import("./pagini/CereriAcceptate"), {
   suspense: true,
 });
 
-const PaginiDashboard = ({ evAcceptate, cereri }) => {
+const Pag3 = dynamic(() => import("./pagini/pag3"), {
+  suspense: true,
+});
+const Pag4 = dynamic(() => import("./pagini/pag4"), {
+  suspense: true,
+});
+const Pag5 = dynamic(() => import("./pagini/pag5"), {
+  suspense: true,
+});
+
+const PaginiDashboard = () => {
   return (
     <ul className=" w-full container flex  h-fit justify-center ">
       <li id="1" className="block w-full h-fit ">
         <Suspense fallback={<Spinner />}>
-          <CereriDeRezervare cereri={cereri} />
+          <CereriDeRezervare />
         </Suspense>
       </li>
       <li id="2" className="hidden  w-full h-fit">
         <Suspense fallback={<Spinner />}>
-          <CereriAcceptate evAcceptate={evAcceptate} />
+          <CereriAcceptate />
         </Suspense>
       </li>
       <li id="3" className="hidden  w-full h-fit">

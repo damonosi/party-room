@@ -4,16 +4,20 @@ import { getSession } from "next-auth/react";
 
 const handler = async (req, res) => {
   const session = await getSession({ req });
-  console.log(session.user.isAdmin);
   if (session?.user?.isAdmin !== true) {
     return res.status(401).send({ message: "signin required" });
   }
+  const idCerere = req.body.idRevervare;
+
   db.connect();
-  const cereri = await Event.find({
-    acceptata: false,
-  }).exec();
+  const cerereDeAcceptat = await Event.findOneAndUpdate(
+    {
+      _id: idCerere,
+    },
+    { $set: { acceptata: true } },
+  ).exec();
 
   await db.disconnect();
-  res.send(cereri);
+  res.send("cerere acceptata");
 };
 export default handler;
