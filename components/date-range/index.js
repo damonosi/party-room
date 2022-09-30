@@ -54,7 +54,6 @@ const DateRangePickerComp = ({ register }) => {
           range[0].endDate,
           "dd/MM/yyyy",
         )}`}
-        {...register("data")}
         id="data"
         readOnly
         ref={inputRef}
@@ -74,6 +73,22 @@ const DateRangePickerComp = ({ register }) => {
             className="absolute left-1/2 top-10 -translate-x-2/4"
           />
         )}
+        <div>
+          <input
+            {...register("data.dePe")}
+            type="text"
+            value={`${format(range[0].startDate, "dd/MM/yyyy")}`}
+            className="hidden"
+            id="dePe"
+          />
+          <input
+            {...register("data.panaPe")}
+            type="text"
+            value={`${format(range[0].endDate, "dd/MM/yyyy")}`}
+            className="hidden"
+            id="panaPe"
+          />
+        </div>
       </div>
     </div>
   );

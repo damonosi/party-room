@@ -20,12 +20,12 @@ const Pag5 = dynamic(() => import("./pag5"), {
   suspense: true,
 });
 
-const PaginiDashboard = ({ evAcceptate }) => {
+const PaginiDashboard = ({ evAcceptate, cereri }) => {
   return (
     <ul className=" w-full container flex  h-fit justify-center ">
       <li id="1" className="block w-full h-fit ">
         <Suspense fallback={<Spinner />}>
-          <CereriDeRezervare />
+          <CereriDeRezervare cereri={cereri} />
         </Suspense>
       </li>
       <li id="2" className="hidden  w-full h-fit">

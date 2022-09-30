@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 
 const CereriAcceptate = ({ evAcceptate }) => {
@@ -7,7 +6,9 @@ const CereriAcceptate = ({ evAcceptate }) => {
       {evAcceptate.map((eveniment) => {
         return (
           <div key={eveniment._id}>
-            <h3>{eveniment?.data}</h3> <h4>nr Contact {eveniment.nrTelefon}</h4>
+            <h3>{eveniment?.data}</h3>
+
+            <h4>nr Contact {eveniment.nrTelefon}</h4>
           </div>
         );
       })}

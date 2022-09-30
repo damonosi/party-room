@@ -2,12 +2,24 @@ import { Event } from "../../../models/Event";
 import db from "./../../../utils/db";
 
 const handler = async (req, res) => {
-  const { nrValue: nrTelefon, dataValue: data } = req.body;
-  console.log(nrTelefon);
+  const {
+    nrValue: nrTelefon,
+    dataInceput,
+    dataFinal,
+    bautura,
+    mancare,
+  } = req.body;
+  let pretLocatie = 1000;
   db.connect();
   const rezervareNoua = new Event({
     nrTelefon,
-    data,
+    "data.dePe": dataInceput,
+    "data.panaPe": dataFinal,
+    "extra.bautura.acceptata": bautura,
+    "extra.mancare.acceptata": mancare,
+
+    pretTotal:
+      pretLocatie + (bautura === true ? 200 : 0) + (mancare === true ? 400 : 0),
   });
   const rezervareFacuta = await rezervareNoua.save();
 

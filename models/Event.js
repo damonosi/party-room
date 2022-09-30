@@ -3,12 +3,26 @@ import mongoose from "mongoose";
 export const eventSchema = new mongoose.Schema(
   {
     nrTelefon: { type: String, required: true },
-    data: { type: String, required: true, unique: true },
-    extra: {
-      bautura: { type: Boolean, required: true, default: false, pret: 200 },
-      mancare: { type: Boolean, required: true, default: false, pret: 100 },
+    data: {
+      dePe: { type: String, required: true },
+      panaPe: { type: String, required: true },
     },
-    pretTotal: { type: Boolean, required: false, default: false },
+    extra: {
+      bautura: {
+        acceptata: { type: Boolean, required: true, default: false },
+        pret: { type: Number, required: false, default: 200 },
+      },
+      mancare: {
+        acceptata: { type: Boolean, required: true, default: false },
+        pret: { type: Number, required: false, default: 400 },
+      },
+    },
+    pretLocatie: { type: Number, required: false, default: 1000 },
+    pretTotal: {
+      type: Number,
+      required: false,
+      default: 1000,
+    },
 
     acceptata: { type: Boolean, required: false, default: false },
   },

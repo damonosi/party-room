@@ -8,11 +8,11 @@ const handler = async (req, res) => {
     return res.status(401).send({ message: "signin required" });
   }
   db.connect();
-  const rezervariAcceptate = await Event.find({
-    acceptata: true,
+  const cereri = await Event.find({
+    acceptata: false,
   }).exec();
 
   await db.disconnect();
-  res.send(rezervariAcceptate);
+  res.send(cereri);
 };
 export default handler;
