@@ -56,37 +56,43 @@ const PaginaRezervare = () => {
           <input {...register("nrTelefon")} type="tel" id="nrTelefon" />
           <label htmlFor="nrTelefon">Nr Contact</label>
         </div>
-        <div className="container flex flex-col relative" id="extra">
-          <div className="flex flex-row-reverse justify-between mb-5">
-            {bautura === true ? (
-              <span className="absolute  -top-4 right-0">+200Lei</span>
-            ) : (
-              ""
-            )}
-            <input
-              {...register("bautura")}
-              id="bautura"
-              type="checkbox"
-              onChange={handleChange}
-              defaultValue={bautura}
-            />
-            <label htmlFor="bautura">Vrei bautura inclusa? </label>
+        <div className="container flex flex-col  border-2 " id="extra">
+          <div className="border-2">
+            {" "}
+            <h1>Extra</h1>
           </div>
+          <div className="p-6">
+            <div className="flex flex-row-reverse justify-between relative mb-5">
+              {bautura === true ? (
+                <span className="absolute  -top-4 right-0">+200Lei</span>
+              ) : (
+                ""
+              )}
+              <input
+                {...register("bautura")}
+                id="bautura"
+                type="checkbox"
+                onChange={handleChange}
+                defaultValue={bautura}
+              />
+              <label htmlFor="bautura">Vrei bautura inclusa? </label>
+            </div>
 
-          <div className="flex flex-row-reverse justify-between relative content-center items-center">
-            {mancare === true ? (
-              <span className="absolute  -top-4 right-0">+400Lei</span>
-            ) : (
-              ""
-            )}
-            <input
-              {...register("mancare")}
-              id="mancare"
-              type="checkbox"
-              onChange={handleChangeMancare}
-              defaultValue={mancare}
-            />
-            <label htmlFor="bautura">Vrei mancare inclusa? </label>
+            <div className="flex flex-row-reverse justify-between relative content-center items-center">
+              {mancare === true ? (
+                <span className="absolute  -top-4 right-0">+400Lei</span>
+              ) : (
+                ""
+              )}
+              <input
+                {...register("mancare")}
+                id="mancare"
+                type="checkbox"
+                onChange={handleChangeMancare}
+                defaultValue={mancare}
+              />
+              <label htmlFor="bautura">Vrei mancare inclusa? </label>
+            </div>
           </div>
         </div>
         <div className="mb-4">
